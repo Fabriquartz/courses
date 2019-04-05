@@ -16,6 +16,7 @@ Input:
 Result:
 ```
 {
+  "id":       1,
   "value_a":  5,
   "value_b":  5,
   "operator": "*",
@@ -23,13 +24,16 @@ Result:
 }
 ```
 
+* A PATCH request to `/calculations/:id` should update the calculation
+
 * `GET /calculations` must return all calculations
 
 * `GET /calculations/:id` must return requested calculation
 
-* `GET /calculations/today` must return all calculations made in the last 5 minutes
-
 * `DELETE /calculations/:id` must delete requested calculation
+
+* `GET /calculations/recent` must return all calculations made in the last 5 minutes
+
 
 
 ## Preparation
