@@ -13,6 +13,9 @@ gem 'pg'
 # puma webserver
 gem 'puma'
 
+# jsonapi spec
+gem 'fast_jsonapi'
+
 gem 'bootsnap', require: false
 gem 'rack-cors'
 
