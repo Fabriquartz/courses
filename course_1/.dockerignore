@@ -1,0 +1,40 @@
+# Ignore ssl certs and keys
+*.crt
+*.key
+
+# Ignore environment files
+.env
+
+#ignore git
+.git
+.gitignore
+
+# Ignore bundler config.
+.bundle
+
+# Ignore RubyMine config.
+.idea
+
+# Ignore Aptana config.
+/.project
+# rbenv
+/.byebug_history
+
+# Ignore vim tags
+tags
+
+docker-compose.yml
+.dockerignore
+.circleci/
+dockerfile
+README.md
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/coverage
+
+/spec/examples.txt
+
+.merge_file_*
+dump.rdb
