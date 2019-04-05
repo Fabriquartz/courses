@@ -46,4 +46,4 @@ any additional stuff.
 * `value_a`, `value_b` and `operator` are mandatory
 * `operator` must be one of the following symbols: `-, +, *, /`
 * All calculations must be saved in the database
-* When you return multiple calculations it must be order by date of creation.
+* When you return multiple calculations they must be ordered by date of creation.
