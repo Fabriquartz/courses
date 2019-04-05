@@ -5,26 +5,26 @@ class CalculationsController < ApplicationController
   def index
     @calculations = Calculation.all
 
-    render json: @calculations
+    render json: serialize(@calculations)
   end
 
   # GET /calculations/recent
   def recent
     @calculations = Calculation.recent
 
-    render json: @calculations
+    render json: serialize(@calculations)
   end
 
   # GET /calculations/1
   def show
-    render json: @calculation
+    render json: serialize(@calculation)
   end
   # POST /calculations
   def create
     @calculation = Calculation.new(calculation_params)
 
     if @calculation.save
-      render json: @calculation, status: :created, location: @calculation
+      render json: serialize(@calculation), status: :created, location: @calculation
     else
       render json: @calculation.errors, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class CalculationsController < ApplicationController
   # PATCH/PUT /calculations/1
   def update
     if @calculation.update(calculation_params)
-      render json: @calculation
+      render json: serialize(@calculation)
     else
       render json: @calculation.errors, status: :unprocessable_entity
     end
@@ -50,8 +50,14 @@ class CalculationsController < ApplicationController
       @calculation = Calculation.find(params[:id])
     end
 
+    # method to get the json
+    def serialize(objects)
+      CalculationSerializer.new(objects).serialized_json
+    end
+
     # Only allow a trusted parameter "white list" through.
     def calculation_params
-      params.require(:calculation).permit(:value_a, :value_b, :operator)
+      # use our new params method inherited from ApplicationController
+      deserialized_params.require(:calculation).permit(:value_a, :value_b, :operator)
     end
 end
