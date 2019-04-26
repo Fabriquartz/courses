@@ -7,6 +7,9 @@ gem 'dotenv-rails'
 
 gem 'rails', '~> 5.2'
 
+# serialization
+gem 'fast_jsonapi'
+
 # postgres db
 gem 'pg'
 
