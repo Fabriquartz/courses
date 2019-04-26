@@ -55,6 +55,16 @@ class CalculationsController < ApplicationController
       CalculationSerializer.new(objects).serialized_json
     end
 
+    # Return a new ActionController::Parameters object with deserialized params
+    def deserialized_params
+      data = params.require(:data)
+
+      type = data.require(:type).singularize
+      attributes = data.require(:attributes).transform_keys { |key| key.downcase.underscore }
+
+      ActionController::Parameters.new(type => attributes)
+    end
+
     # Only allow a trusted parameter "white list" through.
     def calculation_params
       # use our new params method inherited from ApplicationController
